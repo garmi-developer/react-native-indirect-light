@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 const App = () => {
+  // TODO: 背景色をカラーピッカーから選択した値に変更する
   return (
     <View style={styles.container}>
       <Text>茶色にへんこう</Text>
