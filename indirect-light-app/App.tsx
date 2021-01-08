@@ -1,21 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import ColorPalette from 'react-native-color-palette';
+import ColorSelectModal from './components/ColorSelectModal';
 
 const App = () => {
   // TODO: 背景色をカラーピッカーから選択した値に変更する
   const [selectedColor, setSelectedColor] = useState('');
   return (
-    <View style={[styles.container, { backgroundColor: selectedColor }]}>
-      <ColorPalette
-        onChange={(value) => setSelectedColor(value)}
-        defaultColor={'#C0392B'}
-        colors={['#C0392B', '#E74C3C', '#9B59B6', '#8E44AD', '#2980B9']}
-        title={'背景色を変更する'}
-      />
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: selectedColor }]}
+    >
+      <ColorSelectModal setSelectedColor={setSelectedColor} />
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 };
 
